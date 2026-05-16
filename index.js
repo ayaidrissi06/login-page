@@ -1,46 +1,53 @@
-const nameInput = document.getElementById("name");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const signupButton = document.getElementById("signup");
+document.addEventListener("DOMContentLoaded", () => {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const signupButton = document.getElementById("signup");
 
-const loginEmail = document.getElementById("login-email");
-const loginPassword = document.getElementById("login-password");
-const loginButton = document.getElementById("login");
-
-signupButton.addEventListener("click", () => {
-    const nameValue = nameInput.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value;
-
-    if (!nameValue || !emailValue || !passwordValue) {
-        return alert("Veuillez remplir tous les champs");
-    }
+    const loginEmail = document.getElementById("login-email");
+    const loginPassword = document.getElementById("login-password");
+    const loginButton = document.getElementById("login");
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    users.push({ name: nameValue, email: emailValue, password: passwordValue });
-    localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Inscription réussie !\nNom : " + nameValue + "\nEmail : " + emailValue);
+    if (signupButton && nameInput && emailInput && passwordInput) {
+        signupButton.addEventListener("click", () => {
+            const nameValue = nameInput.value.trim();
+            const emailValue = emailInput.value.trim();
+            const passwordValue = passwordInput.value;
 
-    nameInput.value = "";
-    email.value = "";
-    password.value = "";
-});
+            if (!nameValue || !emailValue || !passwordValue) {
+                return alert("Veuillez remplir tous les champs");
+            }
 
-loginButton.addEventListener("click", () => {
-    const emailValue = loginEmail.value.trim();
-    const passwordValue = loginPassword.value;
+            users.push({ name: nameValue, email: emailValue, password: passwordValue });
+            localStorage.setItem("users", JSON.stringify(users));
 
-    if (!emailValue || !passwordValue) {
-        return alert("Veuillez remplir tous les champs");
+            alert("Inscription réussie !\nNom : " + nameValue + "\nEmail : " + emailValue);
+
+            nameInput.value = "";
+            emailInput.value = "";
+            passwordInput.value = "";
+        });
     }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const existingUser = users.find(user => user.email === emailValue && user.password === passwordValue);
+    if (loginButton && loginEmail && loginPassword) {
+        loginButton.addEventListener("click", () => {
+            const emailValue = loginEmail.value.trim();
+            const passwordValue = loginPassword.value;
 
-    if (existingUser) {
-        alert("Connexion réussie");
-    } else {
-        alert("Veuillez vous inscrire");
+            if (!emailValue || !passwordValue) {
+                return alert("Veuillez remplir tous les champs");
+            }
+
+            const existingUser = users.find(user => user.email === emailValue && user.password === passwordValue);
+
+            if (existingUser) {
+                alert("Connexion réussie");
+            } else {
+                alert("Utilisateur inconnu. Vous allez être redirigé vers la page d'inscription.");
+                window.location.href = "login.html";
+            }
+        });
     }
 });
