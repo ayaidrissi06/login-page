@@ -2,8 +2,11 @@ body {
     margin: 0;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    gap: 24px;
+    padding: 40px 20px 20px;
     background: radial-gradient(circle at top left, #d7eaff, #f5f5f5 55%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #2a3761;
@@ -78,3 +81,16 @@ h1 {
     text-decoration: underline;
 }
 
+.page-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.page-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0d2a72;
+    letter-spacing: 0.02em;
+}
+ 

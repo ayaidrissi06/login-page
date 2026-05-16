@@ -1,0 +1,75 @@
+:root {
+    color-scheme: light;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 20px 20px;
+    background: linear-gradient(135deg, #8dc6ff 0%, #d4e6ff 40%, #ffffff 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #11274f;
+}
+
+.page-header {
+    width: min(420px, 92%);
+    text-align: center;
+    margin: 0;
+}
+
+.page-header p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0c2657;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.welcome-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: min(420px, 92%);
+    padding: 40px 32px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(18, 60, 139, 0.14);
+    border-radius: 26px;
+    box-shadow: 0 28px 90px rgba(15, 63, 141, 0.12);
+}
+
+.welcome-card h1 {
+    margin-bottom: 14px;
+    font-size: 2.2rem;
+    color: #0b2659;
+}
+
+.welcome-card p {
+    margin: 0 0 28px;
+    font-size: 1rem;
+    color: #30476d;
+    line-height: 1.6;
+}
+
+.welcome-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1746ff, #4d8dff);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.welcome-card button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+}
